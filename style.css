@@ -298,7 +298,6 @@ body {
 
 /* ===== Блок приглашения после hero ===== */
 .invite-card{
-  width: min(820px, 92vw);
   margin: 18px auto 20px;
   position: relative;
   background: rgba(255,255,255,.92);
