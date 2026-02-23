@@ -117,10 +117,6 @@
                   <span class="cal-datebig-day" id="calBigDay">18</span>
                   <span class="cal-datebig-rest" id="calBigRest">07 • 2026</span>
                 </div>
-
-                <button class="cal-btn" type="button" id="addToCal">
-                  Добавить в календарь
-                </button>
               </div>
             </div>
           </div>
@@ -462,35 +458,7 @@
       );
     }
 
-    document.getElementById("addToCal").addEventListener("click", () => {
-      const start = new Date(WEDDING_ISO);
-      const end = new Date(start.getTime() + 4 * 60 * 60 * 1000); // 4 часа
-
-      const ics =
-        `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Wedding Invite//RU
-CALSCALE:GREGORIAN
-BEGIN:VEVENT
-UID:${Date.now()}@wedding
-DTSTAMP:${toICSDate(new Date())}
-DTSTART:${toICSDate(start)}
-DTEND:${toICSDate(end)}
-SUMMARY:Свадьба Алексея и Ксении
-DESCRIPTION:Мы будем рады видеть вас на нашей свадьбе!
-END:VEVENT
-END:VCALENDAR`;
-
-      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "wedding.ics";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-    });
+    
   </script>
 </body>
 

@@ -464,10 +464,19 @@ body {
 .cal-wrap {
     margin: 0 auto;
     width: min(560px, 100%);
-    background: rgba(255, 255, 255, .65);
-    border: 1px solid rgba(95, 107, 87, .18);
-    box-shadow: 0 18px 50px rgba(0, 0, 0, .08);
-    padding: 16px 14px 14px;
+
+    background: rgba(255, 255, 255, .55);
+    border: 1px solid rgba(95, 107, 87, .14);
+
+    border-radius: 24px;
+    /* мягкие края */
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, .06),
+        0 6px 18px rgba(0, 0, 0, .04);
+
+    padding: 20px 18px 18px;
 }
 
 .cal-head {
@@ -475,7 +484,8 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+
 }
 
 .cal-month {
@@ -503,18 +513,20 @@ body {
     box-shadow: 0 0 0 4px rgba(95, 107, 87, .14);
 }
 
+
 .cal-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
+    gap: 12px;
+    /* было 8 — теперь воздушно */
 }
 
 .cal-dow {
     font-size: 11px;
-    letter-spacing: .12em;
+    letter-spacing: .18em;
     text-transform: uppercase;
-    color: rgba(95, 107, 87, .75);
-    padding: 6px 0 2px;
+    color: rgba(95, 107, 87, .55);
+    padding: 6px 0 4px;
 }
 
 .cal-days {
@@ -529,7 +541,7 @@ body {
     display: grid;
     place-items: center;
     border: 1px solid rgba(95, 107, 87, .12);
-    background: rgba(255, 255, 255, .70);
+
     color: rgba(31, 42, 36, .85);
     font-size: 13px;
     position: relative;
@@ -538,6 +550,7 @@ body {
 .cal-day.is-empty {
     border-color: transparent;
     background: transparent;
+    box-shadow: none;
 }
 
 .cal-day.is-today {
@@ -548,44 +561,48 @@ body {
 /* ===== отметка дня свадьбы ===== */
 .cal-day.is-wedding {
     border-color: rgba(95, 107, 87, .35);
-    background:
-        radial-gradient(120px 60px at 50% 35%, rgba(95, 107, 87, .25), transparent 60%),
-        rgba(255, 255, 255, .72);
     font-weight: 800;
 }
 
 .cal-day.is-wedding::after {
     content: "";
     position: absolute;
-    inset: -6px;
-    border: 2px dashed rgba(95, 107, 87, .45);
+    inset: -4px;
+
+    border-radius: 18px;
+    border: 1.5px dashed rgba(95, 107, 87, .40);
+
     pointer-events: none;
 }
 
 .cal-day.is-wedding::before {
     content: "♥";
     position: absolute;
-    top: -10px;
-    right: -6px;
-    width: 22px;
-    height: 22px;
+    top: -8px;
+    right: -4px;
+
+    width: 20px;
+    height: 20px;
+
     display: grid;
     place-items: center;
+
     border-radius: 999px;
-    background: rgba(95, 107, 87, .90);
+
+    background: rgba(95, 107, 87, .92);
     color: #fff;
-    font-size: 12px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, .18);
+    font-size: 11px;
+
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .18);
 }
 
 /* нижняя часть */
 .cal-footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    /* 👉 прижать вправо */
     align-items: center;
-    gap: 12px;
-    margin-top: 14px;
-    flex-wrap: wrap;
+    margin-top: 18px;
 }
 
 .cal-datebig {
