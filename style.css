@@ -294,6 +294,137 @@ body {
     }
 }
 
+
+
+/* ===== Блок приглашения после hero ===== */
+.invite-card{
+  width: min(820px, 92vw);
+  margin: 18px auto 20px;
+  position: relative;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(230,228,220,.9);
+  box-shadow: var(--shadow-soft);
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+/* лёгкая “бумажная” текстура + мягкий свет */
+.invite-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(900px 340px at 50% -10%, rgba(95,107,87,.10), transparent 60%),
+    radial-gradient(700px 280px at 20% 120%, rgba(95,107,87,.07), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,.86), rgba(247,246,242,.88));
+  pointer-events:none;
+}
+
+.invite-inner{
+  position: relative;
+  z-index: 1;
+  padding: clamp(18px, 3vw, 28px) clamp(16px, 3vw, 30px);
+  text-align: center;
+}
+
+/* декоративные листики */
+.invite-decor{
+  position:absolute;
+  width: 220px;
+  opacity: .55;
+  pointer-events:none;
+  filter: saturate(.95);
+}
+
+.invite-decor.tl{
+  top: -28px;
+  left: -24px;
+  transform: rotate(-6deg);
+}
+.invite-decor.br{
+  bottom: -30px;
+  right: -26px;
+  transform: rotate(-6deg);
+}
+
+.invite-kicker{
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: 12px;
+  color: rgba(95,107,87,.85);
+}
+
+.invite-title{
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(26px, 4vw, 38px);
+  letter-spacing: .04em;
+  color: #2a352f;
+}
+
+.invite-divider{
+  width: min(260px, 62vw);
+  height: 1px;
+  margin: 14px auto 12px;
+  background: linear-gradient(90deg, transparent, rgba(95,107,87,.55), transparent);
+}
+
+.invite-text{
+  margin: 0 auto;
+  max-width: 62ch;
+  color: rgba(31,42,36,.78);
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: center;
+}
+
+.invite-text p{
+  margin: 0 0 12px;
+}
+
+.invite-sign{
+  margin-top: 10px;
+  display:flex;
+  justify-content:center;
+}
+
+.invite-heart{
+  width: 44px;
+  height: 44px;
+  display:grid;
+  place-items:center;
+  border-radius: 999px;
+  border: 1px solid rgba(95,107,87,.25);
+  background: rgba(95,107,87,.06);
+  color: rgba(95,107,87,.85);
+  box-shadow: 0 10px 22px rgba(0,0,0,.08);
+  font-size: 18px;
+}
+
+/* мобилки — декор чуть меньше, чтобы не мешал */
+@media (max-width: 520px){
+  .invite-decor{ width: 180px; opacity: .50; }
+  .invite-text{ font-size: 14.5px; line-height: 1.7; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* =========================
    ДАЛЬШЕ — ТВОЙ ОСТАЛЬНОЙ ДИЗАЙН (БЕЗ ИЗМЕНЕНИЙ)
    ========================= */
