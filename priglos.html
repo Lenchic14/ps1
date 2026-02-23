@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Сайт-приглашение на свадьбу</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <div class="page">
+    <div class="columns" id="invite">
+      <section class="strip fade-in d1">
+
+        <!-- ПЕРВЫЙ БЛОК: фото + текст, 100% высоты -->
+        <section class="hero" id="hero">
+          <img class="hero__bg" src="img/photo_block-3.png" alt="Алексей и Ксения">
+
+          <div class="hero__overlay">
+            <p class="hero__kicker" id="heroLabel">ПРИГЛАСИТЕЛЬНОЕ НА СВАДЬБУ</p>
+
+            <h1 class="hero__names" id="heroNames">
+              <span class="n1">АЛЕКСЕЙ</span>
+              <span class="amp">и</span>
+              <span class="n2"> КСЕНИЯ</span>
+            </h1>
+
+            <div class="hero__ornament" aria-hidden="true"></div>
+
+            <p class="hero__date" id="heroDate">18 • 07 • 2026</p>
+          </div>
+
+          <div class="scroll-hint" aria-hidden="true">
+            <div class="mouse"></div>
+            <span>Листай вниз</span>
+          </div>
+        </section>
+
+
+        <div class="section place">
+          <h3>Место торжества</h3>
+          <p id="place">
+            Санкт-Петербург, п. Юкки, Ленинградское шоссе, 81А<br>
+            (на берегу Тохколодского озера)
+          </p>
+          <button class="btn" id="openMap" type="button">📍 Посмотреть на карте</button>
+        </div>
+
+        <div class="section">
+          <div class="paper-stack">
+            <div class="sheet s2"></div>
+            <div class="sheet s3"></div>
+
+            <div class="program">
+              <div class="p-date" id="programDate">18.07.2026</div>
+              <div class="p-title">Программа<br>торжества</div>
+
+              <div class="program-grid">
+                <div class="slot">
+                  <div class="time" id="t1">14:00</div>
+                  <div class="txt" id="d1txt">Сбор гостей, фуршет</div>
+                </div>
+                <div class="slot">
+                  <div class="time" id="t2">15:00</div>
+                  <div class="txt" id="d2txt">Выездная регистрация</div>
+                </div>
+                <div class="slot">
+                  <div class="time" id="t3">17:00</div>
+                  <div class="txt" id="d3txt">Праздничный банкет</div>
+                </div>
+                <div class="slot">
+                  <div class="time" id="t4">22:00</div>
+                  <div class="txt" id="d4txt">After party</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="countdown fade-in d3">
+            <h3>До торжества осталось</h3>
+            <div class="timer">
+              <div class="bubble"><b id="dd">0</b><span>дней</span></div>
+              <div class="bubble"><b id="hh">0</b><span>часов</span></div>
+              <div class="bubble"><b id="mm">0</b><span>мин</span></div>
+              <div class="bubble"><b id="ss">0</b><span>сек</span></div>
+            </div>
+          </div>
+
+          <div class="dress fade-in d4">
+            <h3>Дресс-код</h3>
+            <p>
+              Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню!
+              Поддержите нас улыбками и объятиями, а также красивыми нарядами.
+            </p>
+            <p style="margin-top:-6px">
+              Для дам просим выбрать вечерние или коктейльные платья в палитре торжества
+              и избегать чисто белого цвета.
+            </p>
+
+            <div class="palette" aria-label="Палитра дресс-кода">
+              <div class="sw" style="background:#f2f4ec"></div>
+              <div class="sw" style="background:#d8ddd0"></div>
+              <div class="sw" style="background:#b8c1b1"></div>
+              <div class="sw" style="background:#7b8a73"></div>
+              <div class="sw" style="background:#4f5f4b"></div>
+            </div>
+          </div>
+
+          <div class="rsvp" id="rsvp">
+            <div class="card-title" style="margin-bottom:6px">RSVP</div>
+            <div class="sub">Подтвердите присутствие (покажем ответ на экране).</div>
+
+            <form id="form">
+              <div>
+                <label for="guest">Ваше имя</label>
+                <input id="guest" required placeholder="Например: Елена" />
+              </div>
+              <div>
+                <label for="att">Вы сможете прийти?</label>
+                <select id="att">
+                  <option value="Да, буду(ем) 💚" selected>Да, буду(ем) 💚</option>
+                  <option value="Под вопросом">Под вопросом</option>
+                  <option value="К сожалению, не смогу">К сожалению, не смогу</option>
+                </select>
+              </div>
+              <div>
+                <label for="count">Сколько вас будет?</label>
+                <select id="count">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+              <div>
+                <label for="phone">Телефон (необязательно)</label>
+                <input id="phone" placeholder="+7 ___ ___-__-__" inputmode="tel" />
+              </div>
+
+              <div>
+                <label for="note">Комментарий (необязательно)</label>
+                <textarea id="note" placeholder="Аллергии / пожелания 🙂"></textarea>
+              </div>
+
+              <div class="send">
+                <button class="btn" type="submit">✨ Отправить ответ</button>
+              </div>
+            </form>
+
+            <p class="sub" id="status" style="margin-top:10px">—</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="foot">Откройте на телефоне — всё адаптивно.</div>
+  </div>
+
+  <script>
+    const DATA = {
+      watermark: "@SenkaAnast",
+
+      heroLabel: "ПРИГЛАСИТЕЛЬНОЕ НА СВАДЬБУ",
+      heroNamesHtml: "АЛЕКСЕЙ<br>и КСЕНИЯ",
+      heroDate: "18 • 07 • 2026",
+      heroPhoto: "https://images.unsplash.com/photo-1523438097201-512ae7d59c5b?auto=format&fit=crop&w=1600&q=80",
+
+      names: "Михаил & Ирина",
+      weddingISO: "2026-09-13T14:00:00",
+      dateText: "18.07.2026",
+      place: "Санкт-Петербург, п. Юкки, Ленинградское шоссе, 81А (на берегу Тохколодского озера)",
+      mapQuery: "Санкт-Петербург Юкки Ленинградское шоссе 81А",
+      programDate: "18.07.2026",
+      program: [
+        { time: "14:00", text: "Сбор гостей, фуршет" },
+        { time: "15:00", text: "Выездная регистрация" },
+        { time: "17:00", text: "Праздничный банкет" },
+        { time: "22:00", text: "After party" }
+      ]
+    };
+
+    // watermark
+    const wm = document.getElementById("watermark");
+    if (wm) wm.textContent = DATA.watermark;
+
+    // hero
+    document.getElementById("heroLabel").textContent = DATA.heroLabel;
+    document.getElementById("heroNames").innerHTML = DATA.heroNamesHtml;
+    document.getElementById("heroDate").textContent = DATA.heroDate;
+    document.getElementById("heroPhoto").src = DATA.heroPhoto;
+
+    // кнопки в hero
+    document.getElementById("scrollToInvite").addEventListener("click", () => {
+      document.getElementById("invite").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    document.getElementById("scrollToRsvp").addEventListener("click", () => {
+      document.getElementById("rsvp").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // Подстановка текста ниже
+    document.getElementById("names").textContent = DATA.names;
+    document.getElementById("dateText").textContent = DATA.dateText;
+    document.getElementById("place").innerHTML = DATA.place.replace(/\n/g, "<br>");
+    document.getElementById("programDate").textContent = DATA.programDate;
+
+    document.getElementById("t1").textContent = DATA.program[0].time;
+    document.getElementById("d1txt").textContent = DATA.program[0].text;
+    document.getElementById("t2").textContent = DATA.program[1].time;
+    document.getElementById("d2txt").textContent = DATA.program[1].text;
+    document.getElementById("t3").textContent = DATA.program[2].time;
+    document.getElementById("d3txt").textContent = DATA.program[2].text;
+    document.getElementById("t4").textContent = DATA.program[3].time;
+    document.getElementById("d4txt").textContent = DATA.program[3].text;
+
+    // Карта
+    document.getElementById("openMap").addEventListener("click", () => {
+      const url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(DATA.mapQuery);
+      window.open(url, "_blank");
+    });
+
+    // Таймер
+    const dd = document.getElementById("dd");
+    const hh = document.getElementById("hh");
+    const mm = document.getElementById("mm");
+    const ss = document.getElementById("ss");
+
+    function tick() {
+      const target = new Date(DATA.weddingISO);
+      const now = new Date();
+      let diff = target - now;
+
+      if (diff <= 0) {
+        dd.textContent = "0";
+        hh.textContent = "0";
+        mm.textContent = "0";
+        ss.textContent = "0";
+        return;
+      }
+
+      const days = Math.floor(diff / (24 * 60 * 60 * 1000));
+      diff -= days * (24 * 60 * 60 * 1000);
+
+      const hours = Math.floor(diff / (60 * 60 * 1000));
+      diff -= hours * (60 * 60 * 1000);
+
+      const mins = Math.floor(diff / (60 * 1000));
+      diff -= mins * (60 * 1000);
+
+      const secs = Math.floor(diff / 1000);
+
+      dd.textContent = String(days);
+      hh.textContent = String(hours);
+      mm.textContent = String(mins);
+      ss.textContent = String(secs);
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // RSVP (локально)
+    const status = document.getElementById("status");
+    document.getElementById("form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("guest").value.trim();
+      const att = document.getElementById("att").value;
+      const count = document.getElementById("count").value;
+      const phone = document.getElementById("phone").value.trim();
+      const note = document.getElementById("note").value.trim();
+
+      const msg =
+        `Ответ: ${name} • ${att} • гостей: ${count}` +
+        (phone ? ` • тел: ${phone}` : "") +
+        (note ? ` • комментарий: ${note}` : "");
+
+      status.textContent = msg;
+      e.target.reset();
+    });
+  </script>
+</body>
+
+</html>
