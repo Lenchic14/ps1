@@ -41,7 +41,6 @@ body {
 .page {
     width: min(1100px, 92vw);
     margin: 0 auto;
-    padding: 18px 0 48px;
     position: relative;
 }
 
