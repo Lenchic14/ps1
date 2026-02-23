@@ -39,6 +39,7 @@
         </section>
 
 
+        <!-- Блок с текстом -->
         <section class="invite-card" id="inviteTextBlock">
           <!-- декор -->
           <svg class="invite-decor tl" viewBox="0 0 240 240" aria-hidden="true">
@@ -81,6 +82,51 @@
             </div>
           </div>
         </section>
+
+
+        <!-- ====== КАЛЕНДАРЬ (вставь после блока приглашения) ====== -->
+        <section class="cal-card" id="calendar">
+          <div class="cal-inner">
+            <p class="cal-kicker">КАЛЕНДАРЬ</p>
+
+            <div class="cal-wrap" aria-label="Календарь">
+              <header class="cal-head">
+                <div class="cal-month" id="calMonth">Июль 2026</div>
+                <div class="cal-note">
+                  <span class="cal-dot" aria-hidden="true"></span>
+                  <span>День свадьбы</span>
+                </div>
+              </header>
+
+              <div class="cal-grid" role="grid" aria-label="Сетка календаря">
+                <!-- дни недели -->
+                <div class="cal-dow">ПН</div>
+                <div class="cal-dow">ВТ</div>
+                <div class="cal-dow">СР</div>
+                <div class="cal-dow">ЧТ</div>
+                <div class="cal-dow">ПТ</div>
+                <div class="cal-dow">СБ</div>
+                <div class="cal-dow">ВС</div>
+
+                <!-- сюда JS вставит числа -->
+                <div class="cal-days" id="calDays" aria-live="polite"></div>
+              </div>
+
+              <div class="cal-footer">
+                <div class="cal-datebig">
+                  <span class="cal-datebig-day" id="calBigDay">18</span>
+                  <span class="cal-datebig-rest" id="calBigRest">07 • 2026</span>
+                </div>
+
+                <button class="cal-btn" type="button" id="addToCal">
+                  Добавить в календарь
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
 
 
         <div class="section place">
@@ -319,6 +365,131 @@
 
       status.textContent = msg;
       e.target.reset();
+    });
+  </script>
+
+
+
+  <script>
+    /* ====== ЛОГИКА КАЛЕНДАРЯ ======
+       Привязано к дате свадьбы. Поставь нужную дату в WEDDING_ISO.
+    */
+    const WEDDING_ISO = "2026-07-18T14:00:00"; // <- дата свадьбы (ISO)
+    const wedding = new Date(WEDDING_ISO);
+
+    // русские названия месяцев
+    const MONTHS_RU = [
+      "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+      "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
+    ];
+
+    // Понедельник = 0
+    function monIndex(jsDay) { // jsDay: 0 вс ... 6 сб
+      return (jsDay + 6) % 7;
+    }
+
+    function renderCalendar(date) {
+      const year = date.getFullYear();
+      const month = date.getMonth(); // 0-11
+      const day = date.getDate();
+
+      // заголовки
+      document.getElementById("calMonth").textContent = `${MONTHS_RU[month]} ${year}`;
+      document.getElementById("calBigDay").textContent = String(day);
+      document.getElementById("calBigRest").textContent =
+        `${String(month + 1).padStart(2, "0")} • ${year}`;
+
+      const daysWrap = document.getElementById("calDays");
+      daysWrap.innerHTML = "";
+
+      const first = new Date(year, month, 1);
+      const last = new Date(year, month + 1, 0);
+      const daysInMonth = last.getDate();
+
+      const startOffset = monIndex(first.getDay()); // сколько пустых клеток слева
+
+      // пустые
+      for (let i = 0; i < startOffset; i++) {
+        const d = document.createElement("div");
+        d.className = "cal-day is-empty";
+        daysWrap.appendChild(d);
+      }
+
+      const now = new Date();
+      for (let n = 1; n <= daysInMonth; n++) {
+        const d = document.createElement("div");
+        d.className = "cal-day";
+        d.textContent = n;
+
+        // отметить "сегодня" (если совпадает месяц/год)
+        if (n === now.getDate() && month === now.getMonth() && year === now.getFullYear()) {
+          d.classList.add("is-today");
+        }
+
+        // отметить день свадьбы
+        if (n === day) {
+          d.classList.add("is-wedding");
+          d.title = "День свадьбы 💚";
+        }
+
+        daysWrap.appendChild(d);
+      }
+
+      // добиваем сетку до полной (красивее)
+      const totalCells = startOffset + daysInMonth;
+      const tail = (7 - (totalCells % 7)) % 7;
+      for (let i = 0; i < tail; i++) {
+        const d = document.createElement("div");
+        d.className = "cal-day is-empty";
+        daysWrap.appendChild(d);
+      }
+    }
+
+    renderCalendar(wedding);
+
+    /* ====== КНОПКА "Добавить в календарь" (ICS) ====== */
+    function pad2(n) { return String(n).padStart(2, "0"); }
+    function toICSDate(dt) {
+      // UTC формат YYYYMMDDTHHMMSSZ
+      const u = new Date(dt.getTime());
+      return (
+        u.getUTCFullYear() +
+        pad2(u.getUTCMonth() + 1) +
+        pad2(u.getUTCDate()) + "T" +
+        pad2(u.getUTCHours()) +
+        pad2(u.getUTCMinutes()) +
+        pad2(u.getUTCSeconds()) + "Z"
+      );
+    }
+
+    document.getElementById("addToCal").addEventListener("click", () => {
+      const start = new Date(WEDDING_ISO);
+      const end = new Date(start.getTime() + 4 * 60 * 60 * 1000); // 4 часа
+
+      const ics =
+        `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Wedding Invite//RU
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:${Date.now()}@wedding
+DTSTAMP:${toICSDate(new Date())}
+DTSTART:${toICSDate(start)}
+DTEND:${toICSDate(end)}
+SUMMARY:Свадьба Алексея и Ксении
+DESCRIPTION:Мы будем рады видеть вас на нашей свадьбе!
+END:VEVENT
+END:VCALENDAR`;
+
+      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "wedding.ics";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
     });
   </script>
 </body>
