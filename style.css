@@ -298,12 +298,9 @@ body {
 
 /* ===== Блок приглашения после hero ===== */
 .invite-card{
-  margin: 18px auto 20px;
   position: relative;
-  background: rgba(255,255,255,.92);
-  border: 1px solid rgba(230,228,220,.9);
   box-shadow: var(--shadow-soft);
-  border-radius: 22px;
+  border-radius: 0;
   overflow: hidden;
 }
 
