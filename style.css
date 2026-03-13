@@ -858,7 +858,6 @@ body {
 
     .program-route {
         inset: 108px 12px 18px 12px;
-        width: calc(100% - 24px);
-        height: calc(100% - 126px);
+        width: calc(100% - 20px);
     }
 }
