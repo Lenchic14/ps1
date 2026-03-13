@@ -18,18 +18,23 @@
         <section class="hero" id="hero">
           <img class="hero__bg" src="img/photo_block-3.png" alt="Алексей и Ксения">
 
-          <div class="hero__overlay">
-            <p class="hero__kicker" id="heroLabel">ПРИГЛАСИТЕЛЬНОЕ НА СВАДЬБУ</p>
 
-            <h1 class="hero__names" id="heroNames">
-              <span class="n1">АЛЕКСЕЙ</span>
-              <span class="amp">и</span>
-              <span class="n2">КСЕНИЯ</span>
+          <div class="hero__overlay">
+
+            <p class="hero__invite">приглашение на свадьбу</p>
+
+            <h1 class="hero__names">
+              <span class="name-top">АЛЕКСЕЙ</span>
+
+              <span class="and">&</span>
+
+              <span class="name-bottom">КСЕНИЯ</span>
             </h1>
 
-            <div class="hero__ornament" aria-hidden="true"></div>
+            <div class="hero-divider"></div>
 
-            <p class="hero__date" id="heroDate">18 • 07 • 2026</p>
+            <p class="hero__date">18 • 07 • 2026</p>
+
           </div>
 
           <div class="scroll-hint" aria-hidden="true">
@@ -125,214 +130,196 @@
 
 
 
-        <div class="section place">
-          <h3>Место торжества</h3>
-          <p id="place">
-            Санкт-Петербург, п. Юкки, Ленинградское шоссе, 81А<br>
-            (на берегу Тохколодского озера)
-          </p>
-          <button class="btn" id="openMap" type="button">📍 Посмотреть на карте</button>
-        </div>
+        <section class="venue-card" id="venue">
+          <div class="venue-inner">
+            <p class="venue-kicker">ЛОКАЦИЯ</p>
+            <h2 class="venue-title">Место торжества</h2>
+
+            <div class="venue-divider"></div>
+
+            <div class="venue-info">
+
+              <div class="venue-text">
+                <p class="venue-address">бульвар Салавата Юлаева, 2</p>
+                <p class="venue-sub">
+                  Будем рады видеть вас в этом прекрасном месте и разделить вместе наш особенный день.
+                </p>
+              </div>
+            </div>
+
+            <div class="venue-map-wrap">
+              <iframe class="venue-map"
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3Afa5b91c28d39b18e5f9e1854803efb419289134a74e1d3132998e74c2c45b8a1&amp;source=constructor"
+                frameborder="0" loading="lazy">
+              </iframe>
+            </div>
+          </div>
+
+          <!-- декор -->
+          <svg class="venue-decor tl" viewBox="0 0 240 240" aria-hidden="true">
+            <path d="M40 180 C70 130, 105 95, 165 65" stroke="rgba(111,127,105,.55)" stroke-width="3"
+              stroke-linecap="round" fill="none" />
+            <ellipse cx="90" cy="125" rx="20" ry="12" fill="rgba(185,199,179,.65)" />
+            <ellipse cx="120" cy="103" rx="18" ry="11" fill="rgba(142,164,135,.65)" />
+            <ellipse cx="145" cy="85" rx="16" ry="10" fill="rgba(111,127,105,.62)" />
+            <ellipse cx="165" cy="68" rx="14" ry="9" fill="rgba(185,199,179,.58)" />
+          </svg>
+
+          <svg class="venue-decor br" viewBox="0 0 240 240" aria-hidden="true">
+            <path d="M60 60 C95 105, 120 140, 175 180" stroke="rgba(111,127,105,.50)" stroke-width="3"
+              stroke-linecap="round" fill="none" />
+            <ellipse cx="96" cy="112" rx="18" ry="11" fill="rgba(185,199,179,.65)" />
+            <ellipse cx="122" cy="138" rx="16" ry="10" fill="rgba(142,164,135,.65)" />
+            <ellipse cx="150" cy="160" rx="14" ry="9" fill="rgba(111,127,105,.62)" />
+          </svg>
+        </section>
+
+        <section class="program-section">
+          <div class="program-stack">
+            <div class="program-sheet sheet-back-1"></div>
+            <div class="program-sheet sheet-back-2"></div>
+
+            <div class="program-card">
+              <div class="program-date">18.07.2026</div>
+              <h2 class="program-title">ПРОГРАММА<br>ТОРЖЕСТВА</h2>
+
+              <div class="program-grid">
+                <div class="program-item item-1">
+                  <div class="program-time">14:20</div>
+                  <div class="program-text">Регистрация</div>
+                </div>
+
+                <div class="program-item item-2">
+                  <div class="program-time">15:10</div>
+                  <div class="program-text">Поздравления,<br>сборы и выезд</div>
+                </div>
+
+                <div class="program-item item-3">
+                  <div class="program-time">15:30</div>
+                  <div class="program-text">Прогулка и фото<br>в парке / на набережной</div>
+                </div>
+
+                <div class="program-item item-4">
+                  <div class="program-time">17:00</div>
+                  <div class="program-text">Праздничный<br>банкет</div>
+                </div>
+              </div>
+
+              <svg class="program-route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M18,33
+                 C35,33 35,33 50,33
+                 C70,33 78,33 78,43
+                 C78,53 68,53 50,53
+                 C30,53 20,53 20,65
+                 C20,78 35,78 50,78
+                 C68,78 72,78 82,78" />
+              </svg>
+            </div>
+          </div>
+        </section>
       </section>
+
+
+
     </div>
   </div>
 
   <script>
     const DATA = {
-      watermark: "@SenkaAnast",
-
       heroLabel: "ПРИГЛАСИТЕЛЬНОЕ НА СВАДЬБУ",
-      heroNamesHtml: "АЛЕКСЕЙ<br>и КСЕНИЯ",
+      heroNamesHtml: "АЛЕКСЕЙ<span class='amp'>и</span>КСЕНИЯ",
       heroDate: "18 • 07 • 2026",
-      heroPhoto: "https://images.unsplash.com/photo-1523438097201-512ae7d59c5b?auto=format&fit=crop&w=1600&q=80",
-
-      names: "Михаил & Ирина",
-      weddingISO: "2026-09-13T14:00:00",
-      dateText: "18.07.2026",
-      place: "Санкт-Петербург, п. Юкки, Ленинградское шоссе, 81А (на берегу Тохколодского озера)",
-      mapQuery: "Санкт-Петербург Юкки Ленинградское шоссе 81А",
-      programDate: "18.07.2026",
-      program: [
-        { time: "14:00", text: "Сбор гостей, фуршет" },
-        { time: "15:00", text: "Выездная регистрация" },
-        { time: "17:00", text: "Праздничный банкет" },
-        { time: "22:00", text: "After party" }
-      ]
+      weddingISO: "2026-07-18T14:00:00"
     };
 
-    // watermark
-    const wm = document.getElementById("watermark");
-    if (wm) wm.textContent = DATA.watermark;
+    /* =========================
+       HERO
+    ========================= */
+    const heroLabel = document.getElementById("heroLabel");
+    const heroNames = document.getElementById("heroNames");
+    const heroDate = document.getElementById("heroDate");
 
-    // hero
-    document.getElementById("heroLabel").textContent = DATA.heroLabel;
-    document.getElementById("heroNames").innerHTML = DATA.heroNamesHtml;
-    document.getElementById("heroDate").textContent = DATA.heroDate;
-    document.getElementById("heroPhoto").src = DATA.heroPhoto;
+    if (heroLabel) heroLabel.textContent = DATA.heroLabel;
+    if (heroNames) heroNames.innerHTML = DATA.heroNamesHtml;
+    if (heroDate) heroDate.textContent = DATA.heroDate;
 
-    // кнопки в hero
-    document.getElementById("scrollToInvite").addEventListener("click", () => {
-      document.getElementById("invite").scrollIntoView({ behavior: "smooth", block: "start" });
-    });
+    /* =========================
+       КАЛЕНДАРЬ
+    ========================= */
+    const wedding = new Date(DATA.weddingISO);
 
-
-    // Подстановка текста ниже
-    document.getElementById("names").textContent = DATA.names;
-    document.getElementById("dateText").textContent = DATA.dateText;
-    document.getElementById("place").innerHTML = DATA.place.replace(/\n/g, "<br>");
-    document.getElementById("programDate").textContent = DATA.programDate;
-
-    document.getElementById("t1").textContent = DATA.program[0].time;
-    document.getElementById("d1txt").textContent = DATA.program[0].text;
-    document.getElementById("t2").textContent = DATA.program[1].time;
-    document.getElementById("d2txt").textContent = DATA.program[1].text;
-    document.getElementById("t3").textContent = DATA.program[2].time;
-    document.getElementById("d3txt").textContent = DATA.program[2].text;
-    document.getElementById("t4").textContent = DATA.program[3].time;
-    document.getElementById("d4txt").textContent = DATA.program[3].text;
-
-    // Карта
-    document.getElementById("openMap").addEventListener("click", () => {
-      const url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(DATA.mapQuery);
-      window.open(url, "_blank");
-    });
-
-    // Таймер
-    const dd = document.getElementById("dd");
-    const hh = document.getElementById("hh");
-    const mm = document.getElementById("mm");
-    const ss = document.getElementById("ss");
-
-    function tick() {
-      const target = new Date(DATA.weddingISO);
-      const now = new Date();
-      let diff = target - now;
-
-      if (diff <= 0) {
-        dd.textContent = "0";
-        hh.textContent = "0";
-        mm.textContent = "0";
-        ss.textContent = "0";
-        return;
-      }
-
-      const days = Math.floor(diff / (24 * 60 * 60 * 1000));
-      diff -= days * (24 * 60 * 60 * 1000);
-
-      const hours = Math.floor(diff / (60 * 60 * 1000));
-      diff -= hours * (60 * 60 * 1000);
-
-      const mins = Math.floor(diff / (60 * 1000));
-      diff -= mins * (60 * 1000);
-
-      const secs = Math.floor(diff / 1000);
-
-      dd.textContent = String(days);
-      hh.textContent = String(hours);
-      mm.textContent = String(mins);
-      ss.textContent = String(secs);
-    }
-    tick();
-    setInterval(tick, 1000);
-
-    
-  </script>
-
-
-
-  <script>
-    /* ====== ЛОГИКА КАЛЕНДАРЯ ======
-       Привязано к дате свадьбы. Поставь нужную дату в WEDDING_ISO.
-    */
-    const WEDDING_ISO = "2026-07-18T14:00:00"; // <- дата свадьбы (ISO)
-    const wedding = new Date(WEDDING_ISO);
-
-    // русские названия месяцев
     const MONTHS_RU = [
       "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
       "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
     ];
 
-    // Понедельник = 0
-    function monIndex(jsDay) { // jsDay: 0 вс ... 6 сб
+    function monIndex(jsDay) {
       return (jsDay + 6) % 7;
     }
 
     function renderCalendar(date) {
+      const calMonth = document.getElementById("calMonth");
+      const calBigDay = document.getElementById("calBigDay");
+      const calBigRest = document.getElementById("calBigRest");
+      const calDays = document.getElementById("calDays");
+
+      if (!calMonth || !calBigDay || !calBigRest || !calDays) return;
+
       const year = date.getFullYear();
-      const month = date.getMonth(); // 0-11
+      const month = date.getMonth();
       const day = date.getDate();
 
-      // заголовки
-      document.getElementById("calMonth").textContent = `${MONTHS_RU[month]} ${year}`;
-      document.getElementById("calBigDay").textContent = String(day);
-      document.getElementById("calBigRest").textContent =
-        `${String(month + 1).padStart(2, "0")} • ${year}`;
+      calMonth.textContent = `${MONTHS_RU[month]} ${year}`;
+      calBigDay.textContent = String(day);
+      calBigRest.textContent = `${String(month + 1).padStart(2, "0")} • ${year}`;
 
-      const daysWrap = document.getElementById("calDays");
-      daysWrap.innerHTML = "";
+      calDays.innerHTML = "";
 
       const first = new Date(year, month, 1);
       const last = new Date(year, month + 1, 0);
       const daysInMonth = last.getDate();
+      const startOffset = monIndex(first.getDay());
 
-      const startOffset = monIndex(first.getDay()); // сколько пустых клеток слева
-
-      // пустые
       for (let i = 0; i < startOffset; i++) {
-        const d = document.createElement("div");
-        d.className = "cal-day is-empty";
-        daysWrap.appendChild(d);
+        const emptyDay = document.createElement("div");
+        emptyDay.className = "cal-day is-empty";
+        calDays.appendChild(emptyDay);
       }
 
       const now = new Date();
+
       for (let n = 1; n <= daysInMonth; n++) {
-        const d = document.createElement("div");
-        d.className = "cal-day";
-        d.textContent = n;
+        const dayCell = document.createElement("div");
+        dayCell.className = "cal-day";
+        dayCell.textContent = n;
 
-        // отметить "сегодня" (если совпадает месяц/год)
-        if (n === now.getDate() && month === now.getMonth() && year === now.getFullYear()) {
-          d.classList.add("is-today");
+        if (
+          n === now.getDate() &&
+          month === now.getMonth() &&
+          year === now.getFullYear()
+        ) {
+          dayCell.classList.add("is-today");
         }
 
-        // отметить день свадьбы
         if (n === day) {
-          d.classList.add("is-wedding");
-          d.title = "День свадьбы 💚";
+          dayCell.classList.add("is-wedding");
+          dayCell.title = "День свадьбы";
         }
 
-        daysWrap.appendChild(d);
+        calDays.appendChild(dayCell);
       }
 
-      // добиваем сетку до полной (красивее)
       const totalCells = startOffset + daysInMonth;
       const tail = (7 - (totalCells % 7)) % 7;
+
       for (let i = 0; i < tail; i++) {
-        const d = document.createElement("div");
-        d.className = "cal-day is-empty";
-        daysWrap.appendChild(d);
+        const emptyDay = document.createElement("div");
+        emptyDay.className = "cal-day is-empty";
+        calDays.appendChild(emptyDay);
       }
     }
 
     renderCalendar(wedding);
-
-    /* ====== КНОПКА "Добавить в календарь" (ICS) ====== */
-    function pad2(n) { return String(n).padStart(2, "0"); }
-    function toICSDate(dt) {
-      // UTC формат YYYYMMDDTHHMMSSZ
-      const u = new Date(dt.getTime());
-      return (
-        u.getUTCFullYear() +
-        pad2(u.getUTCMonth() + 1) +
-        pad2(u.getUTCDate()) + "T" +
-        pad2(u.getUTCHours()) +
-        pad2(u.getUTCMinutes()) +
-        pad2(u.getUTCSeconds()) + "Z"
-      );
-    }
-
-    
   </script>
 </body>
 
